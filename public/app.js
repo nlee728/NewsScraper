@@ -1,4 +1,7 @@
-// Grab the articles as a json
+// Whenever someone clicks the scrape button
+$(document).on("click", "#scrape-button", function() {
+  
+  // Grab the articles as a json
 $.getJSON("/articles", function(data) {
   // For each one
   for (var i = 0; i < data.length; i++) {
@@ -10,6 +13,8 @@ $.getJSON("/articles", function(data) {
                           + "<br />" + data[i].image + "</p>");
   }
 });
+});
+
 
 
 // Whenever someone clicks a p tag

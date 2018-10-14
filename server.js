@@ -57,6 +57,7 @@ app.get("/scrape", function(req, res) {
         .then(function(dbArticle) {
           // View the added result in the console
           console.log(dbArticle);
+          res.send(dbArticle);
         })
         .catch(function(err) {
           // If an error occurred, send it to the client
@@ -65,7 +66,8 @@ app.get("/scrape", function(req, res) {
     });
 
     // If we were able to successfully scrape and save an Article, send a message to the client
-    res.send("Scrape Complete");
+    // res.send("Scrape Complete");
+
   });
 });
 
