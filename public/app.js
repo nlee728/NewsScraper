@@ -16,15 +16,16 @@ $(document).on("click", "#scrape-button", function() {
     for (var i = 0; i < data.length; i++) {
       // Display the apropos information on the page
       $("#articles").append("<p data-id='" + data[i]._id 
-                            + "'href='" + data[i]._link 
                             + "'><b>" + data[i].title + 
                             "</b><br/>" + data[i].summary + "</p>"
+                            + "<a href='" + data[i].link + "'>Read Article</a><button class='add-note-button' data-id='" + data[i]._id + "'>Add Note</button><br><br>"
+
                           );
     }
   });
 
 // Whenever someone clicks a button
-$(document).on("click", "p", function() {
+$(document).on("click", ".add-note-button", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag

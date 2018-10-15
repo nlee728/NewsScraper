@@ -30,9 +30,10 @@ textarea {
     height: 200px;
     font-size: 18px;
 }
-#scrape-button, #clear-button {
+#scrape-button, .add-note-button {
     background-color: azure;
     border: 1px black solid;
+    margin-left: 5px;
 }      
 .navbar-brand {
     font-size: 30px;

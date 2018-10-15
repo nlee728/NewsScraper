@@ -2,6 +2,8 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 
+
+
 // Scraping tools
 var axios = require("axios");
 var cheerio = require("cheerio");
@@ -36,8 +38,6 @@ app.get("/scrape", function(req, res) {
 
   axios.get("https://www.huffpost.com/life/parents").then(function(response) {
 
-    app.get("/articles", function(req, res) {
-      if (res.indexOf(Article) > -1 ) {
     // Load into cheerio and save to $ for a shorthand selector
     var $ = cheerio.load(response.data);
   
@@ -67,15 +67,13 @@ app.get("/scrape", function(req, res) {
           return res.json(err);
         });
     });
-  };
   });
-});
 });
 
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
   // Grab every document in the Articles collection
-  db.Article.find({})
+  db.Article.find({}).sort({"_id": -1})
     .then(function(dbArticle) {
       // If we were able to successfully find Articles, send them back to the client
       res.json(dbArticle);
