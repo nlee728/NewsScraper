@@ -9,6 +9,17 @@ $(document).on("click", "#scrape-button", function() {
     });
   });
 
+  // Whenever someone clicks the clear button
+// $(document).on("click", "#clear-button", function() {
+//   $.ajax({
+//     method: "POST",
+//     url: "/clear/"
+//   }).then(function(data){
+//     window.location = "/"
+//     console.log(data)
+//   });
+// });
+
 
   // Grab the articles as a json
   $.getJSON("/articles", function(data) {

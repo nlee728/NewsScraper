@@ -41,9 +41,10 @@ app.get("/scrape", function(req, res) {
     // Load into cheerio and save to $ for a shorthand selector
     var $ = cheerio.load(response.data);
   
-     // Save an empty result object
-     var result = {};
-  
+    // Save an empty result object
+    var result = {};
+
+    
     $("div.card").each(function(i, element) {
   
       result.title =  $(this).children().find("h3.card__headline__text").text();
@@ -53,8 +54,9 @@ app.get("/scrape", function(req, res) {
       result.image =  $(this).children().find("img").attr("src");
   
       result.summary =  $(this).children().find("div.card__description").text();
+
+     
   
-      
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
@@ -65,10 +67,10 @@ app.get("/scrape", function(req, res) {
         .catch(function(err) {
           // If an error occurred, send it to the client
           return res.json(err);
-        });
-    });
+        }); 
+      });
   });
-});
+  });
 
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {

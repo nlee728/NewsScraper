@@ -30,7 +30,7 @@ textarea {
     height: 200px;
     font-size: 18px;
 }
-#scrape-button, .add-note-button {
+#scrape-button, #clear-button, .add-note-button {
     background-color: azure;
     border: 1px black solid;
     margin-left: 5px;
