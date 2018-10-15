@@ -1,5 +1,5 @@
 body { 
-    background-color: rgb(216, 215, 212); 
+background-color: paleturquoise;
 }
 /* #wrapper {
     width: 960px;
@@ -8,19 +8,19 @@ body {
     padding-top: 5%;
 } */
 #articles {
-    /* display: inline-block; */
+    display: inline-block;
     overflow: auto;
-    /* width: 60%; */
+    width: 60%;
     height: 400px;
 }
 #notes {
-    /* float: right;
-    width: 30%; */
+    float: right;
+    width: 30%;
 }
 textarea, input {
     display: block;
     width: 100%;
-    background-color: rgb(164, 243, 203);
+    background-color: paleturquoise;
 }
 input {
     height: 36px;
@@ -30,4 +30,11 @@ textarea {
     height: 200px;
     font-size: 18px;
 }
-      
+#scrape-button, #clear-button {
+    background-color: azure;
+    border: 1px black solid;
+}      
+.navbar-brand {
+    font-size: 30px;
+    font-weight: bold;
+}
