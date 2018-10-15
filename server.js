@@ -35,6 +35,9 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 app.get("/scrape", function(req, res) {
 
   axios.get("https://www.huffpost.com/life/parents").then(function(response) {
+
+    app.get("/articles", function(req, res) {
+      if (res.indexOf(Article) > -1 ) {
     // Load into cheerio and save to $ for a shorthand selector
     var $ = cheerio.load(response.data);
   
@@ -51,7 +54,7 @@ app.get("/scrape", function(req, res) {
   
       result.summary =  $(this).children().find("div.card__description").text();
   
-
+      
       // Create a new Article using the `result` object built from scraping
       db.Article.create(result)
         .then(function(dbArticle) {
@@ -64,11 +67,9 @@ app.get("/scrape", function(req, res) {
           return res.json(err);
         });
     });
-
-    // If we were able to successfully scrape and save an Article, send a message to the client
-    // res.send("Scrape Complete");
-
+  };
   });
+});
 });
 
 // Route for getting all Articles from the db

@@ -24,7 +24,7 @@ $(document).on("click", "#scrape-button", function() {
   });
 
 // Whenever someone clicks a button
-$(document).on("click", "#add-note-button", function() {
+$(document).on("click", "p", function() {
   // Empty the notes from the note section
   $("#notes").empty();
   // Save the id from the p tag
